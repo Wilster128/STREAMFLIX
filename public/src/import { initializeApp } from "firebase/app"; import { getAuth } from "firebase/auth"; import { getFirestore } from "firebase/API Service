@@ -1,0 +1,15 @@
+import axios from "axios";
+
+const API_KEY = "YOUR_TMDB_KEY";
+const BASE = "https://api.themoviedb.org/3";
+
+export const getTrending = () =>
+  axios.get(`${BASE}/trending/all/week?api_key=${API_KEY}`);
+export const getMovies = () =>
+  axios.get(`${BASE}/movie/popular?api_key=${API_KEY}`);
+export const getSeries = () =>
+  axios.get(`${BASE}/tv/popular?api_key=${API_KEY}`);
+export const searchAll = (q) =>
+  axios.get(`${BASE}/search/multi?api_key=${API_KEY}&query=${q}`);
+export const getDetails = (id, type) =>
+  axios.get(`${BASE}/${type}/${id}?api_key=${API_KEY}&append_to_response=videos,recommendations`);
